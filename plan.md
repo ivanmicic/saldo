@@ -98,7 +98,7 @@ Stack: Next.js (App Router) · TypeScript · Tailwind · lokalni React state · 
 - [x] Persistencija budžeta u `localStorage`
 - [x] Prava mesečna istorija (više meseci)
 - [ ] Jača advice pravila / pragovi po domaćinstvu
-- [ ] Deploy na Vercel + custom domen
+- [x] Deploy na Vercel (+ custom domen kasnije po želji)
 - [x] Favicon / OG meta za deljenje
 - [ ] Jednostavni smoke testovi za `getSavingsAdvice` i totals
 
