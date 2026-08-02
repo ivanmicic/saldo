@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
+import { MonthHistory } from "@/components/MonthHistory";
 import { MonthlyOverview } from "@/components/MonthlyOverview";
 import { SavingsAdvice } from "@/components/SavingsAdvice";
 import { useApp } from "@/context/AppContext";
@@ -29,11 +30,12 @@ export function HomePage() {
     <>
       <DocumentMeta />
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pb-20 lg:pb-0">
         <Hero />
         <BudgetWorkspace />
         <SavingsAdvice />
         <MonthlyOverview />
+        <MonthHistory />
         <HowItWorks />
       </main>
       <Footer />

@@ -15,10 +15,3 @@ export function formatMoney(amount: number, locale: Locale): string {
 
   return negative ? `−${body}` : body;
 }
-
-export function formatSignedMoney(amount: number, locale: Locale): string {
-  const formatted = formatMoney(Math.abs(amount), locale);
-  if (amount > 0) return `+${formatted}`;
-  if (amount < 0) return `−${formatted}`;
-  return formatted;
-}

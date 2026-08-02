@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 export const en: Dictionary = {
   meta: {
-    title: "Saldo — See clearly what stays with you",
+    title: "SALDO – Household budget",
     description:
-      "A simple household budget: enter income and expenses, see your saldo, and get practical savings tips.",
+      "Household budget: enter income and expenses, see what remains (saldo), and get practical savings tips.",
   },
   brand: {
     name: "Saldo",
@@ -16,6 +16,7 @@ export const en: Dictionary = {
     how: "How it works",
     overview: "Overview",
     language: "Language",
+    currency: "Currency",
     themeLight: "Light theme",
     themeDark: "Dark theme",
   },
@@ -39,7 +40,8 @@ export const en: Dictionary = {
   },
   budget: {
     title: "Your monthly budget",
-    subtitle: "Enter amounts. Totals and saldo update immediately.",
+    subtitle:
+      "Enter amounts. Totals and saldo update immediately. Entries are saved on this device.",
     incomeTitle: "Income",
     incomeHint: "Everything coming in this month.",
     expenseTitle: "Expenses",
@@ -54,7 +56,8 @@ export const en: Dictionary = {
     totalExpense: "Total expenses",
     emptyIncome: "No income yet. Add your first entry.",
     emptyExpense: "No expenses yet. Add your first entry.",
-    currency: "RSD",
+    clear: "Clear entries",
+    clearConfirm: "Clear all budget entries? This cannot be undone.",
   },
   categories: {
     housing: "Housing",
@@ -90,7 +93,7 @@ export const en: Dictionary = {
     emptySaldoBody: "Once both sides are in, you immediately see what remains.",
     positiveTitle: "Set some aside first",
     positiveBody:
-      "Suggestion: move about {amount} RSD into savings as soon as income arrives — before the rest of spending.",
+      "Suggestion: move about {amount} {currency} into savings as soon as income arrives — before the rest of spending.",
     reserveTitle: "Keep a reserve",
     reserveBody:
       "The budget is tight. Don’t spend the leftover right away — keep it as a buffer until month-end.",
@@ -129,7 +132,7 @@ export const en: Dictionary = {
       "Remove or postpone one non-essential item this month. Small cuts add up.",
     primaryLabel: "Most important now",
     reasonNegative: "Your saldo is negative — you’re spending more than comes in.",
-    reasonPositive: "You have {amount} RSD left — there is room to save.",
+    reasonPositive: "You have {amount} {currency} left — there is room to save.",
     reasonReserve: "Expenses are {percent}% of income — keep the leftover, don’t spend it.",
     reasonNearZero: "Saldo is near zero — little room for error.",
     reasonHighSpend: "Expenses make up {percent}% of income.",
@@ -143,7 +146,7 @@ export const en: Dictionary = {
     title: "Monthly overview",
     subtitle: "This month’s snapshot — income, expenses, and where most money goes.",
     thisMonth: "This month",
-    note: "This overview updates live as you enter data.",
+    note: "This overview updates live. Entries stay saved on this device.",
     income: "Income",
     expenses: "Expenses",
     saldo: "Saldo",
@@ -153,8 +156,24 @@ export const en: Dictionary = {
     saldoNegative: "Saldo is negative — expenses exceed income.",
     saldoZero: "Saldo is zero — income and expenses are even.",
   },
+  history: {
+    title: "Month history",
+    subtitle:
+      "Save the current budget as a snapshot of this calendar month. History stays local on this device.",
+    save: "Save this month",
+    saveHint: "Semi-automatic: saves the current calendar month. Saving again replaces that month.",
+    saved: "Month saved.",
+    empty: "No saved months yet.",
+    emptyBudget: "Enter at least one income or expense before saving.",
+    saveOverwriteConfirm:
+      "A snapshot for {month} already exists. Replace it with the current numbers?",
+    delete: "Remove",
+    deleteConfirm: "Remove saved month {month}?",
+    topCategory: "Largest category: {category}",
+  },
   footer: {
-    trust: "Saldo does not connect to bank accounts. Your data stays in the browser.",
+    trust:
+      "No accounts and no bank connection. Your budget is stored locally in this browser — it stays after you refresh.",
     rights: "Saldo — household budgeting, clear and calm.",
   },
 };

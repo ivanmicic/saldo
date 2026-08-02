@@ -4,7 +4,7 @@ import { Logo } from "@/components/Logo";
 import { useApp } from "@/context/AppContext";
 
 export function Header() {
-  const { dict, locale, setLocale, theme, toggleTheme } = useApp();
+  const { dict, locale, setLocale, currency, setCurrency, theme, toggleTheme } = useApp();
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-bg/85 backdrop-blur-md">
@@ -54,6 +54,37 @@ export function Header() {
               aria-pressed={locale === "en"}
             >
               EN
+            </button>
+          </div>
+
+          <div
+            className="inline-flex rounded-app-sm border border-border bg-bg-elevated p-0.5"
+            role="group"
+            aria-label={dict.nav.currency}
+          >
+            <button
+              type="button"
+              onClick={() => setCurrency("RSD")}
+              className={`rounded-[6px] px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
+                currency === "RSD"
+                  ? "bg-saldo text-bg-elevated"
+                  : "text-fg-muted hover:text-fg"
+              }`}
+              aria-pressed={currency === "RSD"}
+            >
+              RSD
+            </button>
+            <button
+              type="button"
+              onClick={() => setCurrency("EUR")}
+              className={`rounded-[6px] px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
+                currency === "EUR"
+                  ? "bg-saldo text-bg-elevated"
+                  : "text-fg-muted hover:text-fg"
+              }`}
+              aria-pressed={currency === "EUR"}
+            >
+              EUR
             </button>
           </div>
 

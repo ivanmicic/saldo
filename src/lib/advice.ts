@@ -1,5 +1,5 @@
 import { formatMoney } from "./format";
-import type { BudgetTotals, ExpenseCategory, Locale } from "./types";
+import type { BudgetTotals, Currency, ExpenseCategory, Locale } from "./types";
 import type { Dictionary } from "./i18n/types";
 
 export interface AdviceTip {
@@ -17,6 +17,7 @@ interface AdviceInput {
   totals: BudgetTotals;
   expenseCount: number;
   locale: Locale;
+  currency: Currency;
   dict: Dictionary;
 }
 
@@ -40,6 +41,7 @@ export function getSavingsAdvice({
   totals,
   expenseCount,
   locale,
+  currency,
   dict,
 }: AdviceInput): AdviceTip[] {
   const { saldo, incomeTotal, expenseTotal } = totals;
@@ -82,8 +84,14 @@ export function getSavingsAdvice({
       scored.push({
         id: "save-first",
         title: a.positiveTitle,
-        body: fill(a.positiveBody, { amount: formatMoney(saveAmount, locale) }),
-        reason: fill(a.reasonPositive, { amount: formatMoney(saldo, locale) }),
+        body: fill(a.positiveBody, {
+          amount: formatMoney(saveAmount, locale),
+          currency,
+        }),
+        reason: fill(a.reasonPositive, {
+          amount: formatMoney(saldo, locale),
+          currency,
+        }),
         score: 60,
       });
     } else if (expenseRatio <= 0.9) {

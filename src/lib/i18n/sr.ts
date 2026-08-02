@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 export const sr: Dictionary = {
   meta: {
-    title: "Saldo — Jasno vidi šta ti ostaje",
+    title: "SALDO – Kućni budžet",
     description:
-      "Jednostavan kućni budžet: unesi prihode i rashode, vidi saldo i dobij praktične savete za štednju.",
+      "Kućni budžet: unesi prihode i rashode, vidi ostatak (saldo) i dobij praktične savete za štednju.",
   },
   brand: {
     name: "Saldo",
@@ -16,6 +16,7 @@ export const sr: Dictionary = {
     how: "Kako radi",
     overview: "Pregled",
     language: "Jezik",
+    currency: "Valuta",
     themeLight: "Svetla tema",
     themeDark: "Tamna tema",
   },
@@ -39,7 +40,8 @@ export const sr: Dictionary = {
   },
   budget: {
     title: "Tvoj mesečni budžet",
-    subtitle: "Unesi iznose. Ukupni i saldo se računaju odmah.",
+    subtitle:
+      "Unesi iznose. Ukupni i saldo se računaju odmah. Unosi se čuvaju na ovom uređaju.",
     incomeTitle: "Prihodi",
     incomeHint: "Sve što ulazi ovog meseca.",
     expenseTitle: "Rashodi",
@@ -54,7 +56,8 @@ export const sr: Dictionary = {
     totalExpense: "Ukupni rashodi",
     emptyIncome: "Još nema prihoda. Dodaj prvi unos.",
     emptyExpense: "Još nema rashoda. Dodaj prvi unos.",
-    currency: "RSD",
+    clear: "Obriši unose",
+    clearConfirm: "Obrisati sve unose budžeta? Ovo ne može da se opozove.",
   },
   categories: {
     housing: "Stanovanje",
@@ -90,7 +93,7 @@ export const sr: Dictionary = {
     emptySaldoBody: "Kada uneseš obe strane, odmah vidiš šta ostaje.",
     positiveTitle: "Odvoji deo odmah",
     positiveBody:
-      "Predlog: prebaci oko {amount} RSD u štednju čim stigne prihod — pre ostatka troškova.",
+      "Predlog: prebaci oko {amount} {currency} u štednju čim stigne prihod — pre ostatka troškova.",
     reserveTitle: "Zadrži rezervu",
     reserveBody:
       "Budžet je zategnut. Ne troši višak odmah — ostavi ga kao rezervu do kraja meseca.",
@@ -129,7 +132,7 @@ export const sr: Dictionary = {
       "Ukloni ili odloži jednu nenužnu stavku ovog meseca. Mali rezovi se sabiraju.",
     primaryLabel: "Najvažnije sada",
     reasonNegative: "Saldo ti je negativan — trošiš više nego što ulazi.",
-    reasonPositive: "Ostaje ti {amount} RSD — ima prostora za štednju.",
+    reasonPositive: "Ostaje ti {amount} {currency} — ima prostora za štednju.",
     reasonReserve: "Rashodi su {percent}% prihoda — višak treba čuvati, ne trošiti.",
     reasonNearZero: "Saldo je blizu nule — mali prostor za grešku.",
     reasonHighSpend: "Rashodi čine {percent}% prihoda.",
@@ -143,7 +146,7 @@ export const sr: Dictionary = {
     title: "Mesečni pregled",
     subtitle: "Snapshot ovog meseca — prihodi, rashodi i gde najviše ode novac.",
     thisMonth: "Ovog meseca",
-    note: "Pregled se ažurira uživo dok unosiš podatke.",
+    note: "Pregled se ažurira uživo. Unosi ostaju sačuvani na ovom uređaju.",
     income: "Prihodi",
     expenses: "Rashodi",
     saldo: "Saldo",
@@ -153,8 +156,24 @@ export const sr: Dictionary = {
     saldoNegative: "Saldo je negativan — rashodi premašuju prihode.",
     saldoZero: "Saldo je nula — prihodi i rashodi su izjednačeni.",
   },
+  history: {
+    title: "Istorija meseci",
+    subtitle:
+      "Sačuvaj trenutni budžet kao snapshot ovog kalendarskog meseca. Pregled ostaje lokalno na uređaju.",
+    save: "Sačuvaj ovaj mesec",
+    saveHint: "Poluautomatski: čuva se tekući kalendarski mesec. Ponovno čuvanje zamenjuje isti mesec.",
+    saved: "Mesec je sačuvan.",
+    empty: "Još nema sačuvanih meseci.",
+    emptyBudget: "Unesi bar jedan prihod ili rashod pre čuvanja.",
+    saveOverwriteConfirm:
+      "Već postoji sačuvan snapshot za {month}. Zameniti ga trenutnim brojevima?",
+    delete: "Ukloni",
+    deleteConfirm: "Ukloniti sačuvan mesec {month}?",
+    topCategory: "Najveća kategorija: {category}",
+  },
   footer: {
-    trust: "Saldo ne povezuje bankovne račune. Tvoji podaci ostaju u pregledaču.",
+    trust:
+      "Nema naloga i nema bankovne veze. Budžet se čuva lokalno u tvom pregledaču — ostaje i posle osvežavanja stranice.",
     rights: "Saldo — kućni budžet, jasno i mirno.",
   },
 };

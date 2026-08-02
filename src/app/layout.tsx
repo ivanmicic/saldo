@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { AppProvider } from "@/context/AppContext";
 import "./globals.css";
@@ -15,10 +15,31 @@ const sourceSans = Source_Sans_3({
   display: "swap",
 });
 
+const siteTitle = "SALDO – Kućni budžet";
+const siteDescription =
+  "Kućni budžet: unesi prihode i rashode, vidi ostatak (saldo) i dobij praktične savete za štednju.";
+
 export const metadata: Metadata = {
-  title: "Saldo — Jasno vidi šta ti ostaje",
-  description:
-    "Jednostavan kućni budžet: unesi prihode i rashode, vidi saldo i dobij praktične savete za štednju.",
+  title: siteTitle,
+  description: siteDescription,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1F4A5C",
 };
 
 const themeInitScript = `

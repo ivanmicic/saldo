@@ -2,18 +2,38 @@
 
 import { useApp } from "@/context/AppContext";
 import { formatMoney } from "@/lib/format";
+import type { Currency } from "@/lib/types";
 
-const samplePreview = {
-  saldo: 42500,
-  income: 120000,
-  expenses: 77500,
-  incomeShare: 72,
-  expenseShare: 46,
-  status: "positive" as const,
-};
+const sampleByCurrency = {
+  RSD: {
+    saldo: 42500,
+    income: 120000,
+    expenses: 77500,
+    incomeShare: 72,
+    expenseShare: 46,
+  },
+  // Typical monthly household picture in EUR — not executive income
+  EUR: {
+    saldo: 750,
+    income: 2200,
+    expenses: 1450,
+    incomeShare: 72,
+    expenseShare: 46,
+  },
+} as const satisfies Record<
+  Currency,
+  {
+    saldo: number;
+    income: number;
+    expenses: number;
+    incomeShare: number;
+    expenseShare: number;
+  }
+>;
 
 export function Hero() {
-  const { dict, locale } = useApp();
+  const { dict, locale, currency } = useApp();
+  const samplePreview = sampleByCurrency[currency];
 
   return (
     <section
@@ -64,7 +84,7 @@ export function Hero() {
                 <p className="mt-1 font-display text-3xl font-semibold tracking-tight text-saldo-fg tabular-nums">
                   {formatMoney(samplePreview.saldo, locale)}
                   <span className="ml-1 text-sm font-medium text-fg-subtle">
-                    {dict.budget.currency}
+                    {currency}
                   </span>
                 </p>
               </div>

@@ -15,6 +15,7 @@ export interface Dictionary {
     how: string;
     overview: string;
     language: string;
+    currency: string;
     themeLight: string;
     themeDark: string;
   };
@@ -52,7 +53,8 @@ export interface Dictionary {
     totalExpense: string;
     emptyIncome: string;
     emptyExpense: string;
-    currency: string;
+    clear: string;
+    clearConfirm: string;
   };
   categories: Record<ExpenseCategory, string>;
   saldo: {
@@ -128,6 +130,19 @@ export interface Dictionary {
     saldoPositive: string;
     saldoNegative: string;
     saldoZero: string;
+  };
+  history: {
+    title: string;
+    subtitle: string;
+    save: string;
+    saveHint: string;
+    saved: string;
+    empty: string;
+    emptyBudget: string;
+    saveOverwriteConfirm: string;
+    delete: string;
+    deleteConfirm: string;
+    topCategory: string;
   };
   footer: {
     trust: string;

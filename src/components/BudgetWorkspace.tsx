@@ -47,19 +47,34 @@ export function SaldoSummary() {
 }
 
 export function BudgetWorkspace() {
-  const { dict, budget, totals, addIncome, addExpense } = useApp();
+  const { dict, budget, totals, addIncome, addExpense, clearBudget } = useApp();
+
+  const handleClear = () => {
+    if (window.confirm(dict.budget.clearConfirm)) {
+      clearBudget();
+    }
+  };
 
   return (
     <section id="budget" className="border-b border-border" aria-labelledby="budget-title">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <div className="max-w-2xl">
-          <h2
-            id="budget-title"
-            className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
+        <div className="flex max-w-2xl flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2
+              id="budget-title"
+              className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
+            >
+              {dict.budget.title}
+            </h2>
+            <p className="mt-3 text-fg-muted">{dict.budget.subtitle}</p>
+          </div>
+          <button
+            type="button"
+            onClick={handleClear}
+            className="self-start text-sm font-medium text-fg-subtle underline-offset-4 transition-colors hover:text-danger hover:underline sm:self-auto sm:shrink-0"
           >
-            {dict.budget.title}
-          </h2>
-          <p className="mt-3 text-fg-muted">{dict.budget.subtitle}</p>
+            {dict.budget.clear}
+          </button>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_20rem] lg:items-start">

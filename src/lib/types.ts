@@ -1,5 +1,6 @@
 export type Locale = "sr" | "en";
 export type Theme = "light" | "dark";
+export type Currency = "RSD" | "EUR";
 
 export type ExpenseCategory =
   | "housing"
@@ -31,6 +32,20 @@ export interface BudgetTotals {
   expenseTotal: number;
   saldo: number;
   expensesByCategory: Record<ExpenseCategory, number>;
+}
+
+/** Compact saved month — totals only, for local history. */
+export interface MonthSnapshot {
+  id: string;
+  year: number;
+  month: number; // 1–12
+  currency: Currency;
+  incomeTotal: number;
+  expenseTotal: number;
+  saldo: number;
+  topCategory: ExpenseCategory | null;
+  topCategoryAmount: number;
+  savedAt: string;
 }
 
 export const EXPENSE_CATEGORIES: ExpenseCategory[] = [

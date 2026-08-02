@@ -5,7 +5,7 @@ import { getSavingsAdvice } from "@/lib/advice";
 import { useApp } from "@/context/AppContext";
 
 export function SavingsAdvice() {
-  const { dict, locale, totals, budget } = useApp();
+  const { dict, locale, currency, totals, budget } = useApp();
 
   const tips = useMemo(
     () =>
@@ -13,9 +13,10 @@ export function SavingsAdvice() {
         totals,
         expenseCount: budget.expenses.filter((e) => e.amount > 0).length,
         locale,
+        currency,
         dict,
       }),
-    [totals, budget.expenses, locale, dict],
+    [totals, budget.expenses, locale, currency, dict],
   );
 
   return (

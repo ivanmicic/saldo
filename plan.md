@@ -16,7 +16,10 @@ Stack: Next.js (App Router) · TypeScript · Tailwind · lokalni React state · 
 | i18n SR/EN + theme toggle | Urađeno |
 | Responsive + sticky saldo (mobile) | Urađeno |
 | Hydration fix (stabilni ID-jevi) | Urađeno |
-| Bank sync / login / AI / istorija po mesecima | Van MVP — kasnije |
+| Persistencija budžeta (`localStorage`) | Urađeno |
+| Lean meta / favicon polish | Urađeno |
+| Mesečni snapshot istorija (lokalno) | Urađeno |
+| Bank sync / login / AI | Van MVP — kasnije |
 
 ---
 
@@ -47,6 +50,36 @@ Stack: Next.js (App Router) · TypeScript · Tailwind · lokalni React state · 
 
 ---
 
+### 2026-08-02 — Lean optimizacija (meta + favicon + clean build)
+
+- Šta: Metadata/OG/theme-color, minimalni favicon set (`ico` + 16/32 png), uklonjen nekorišćeni `formatSignedMoney`, uklonjen `app/icon.svg` da nema duplog icon inject-a; dependency audit bez brisanja paketa.
+- Zašto: Pragmatična priprema za deljenje linka i čist production build, bez novih feature-a i bez novih dependency-ja.
+- Fajlovi: `src/app/layout.tsx`, `src/lib/i18n/sr.ts`, `src/lib/i18n/en.ts`, `src/lib/format.ts`, `public/favicon*`, `plan.md`
+
+### 2026-08-02 — Pre-deploy polish + localStorage
+
+- Šta: Persistencija budžeta u `localStorage` (hydrate-safe load posle mount-a, sanitize payload-a), “Obriši unose”, jasniji trust copy (nema naloga / lokalno čuvanje).
+- Zašto: Refresh ne sme da briše rad korisnika pre deploy-a; transparentnost oko lokalnih podataka.
+- Fajlovi: `src/lib/persistence.ts`, `src/context/AppContext.tsx`, `src/components/BudgetWorkspace.tsx`, `src/lib/i18n/*`, `plan.md`
+
+### 2026-08-02 — Valuta RSD / EUR
+
+- Šta: Izbor valute RSD|EUR u headeru, persistencija u `localStorage`, prikaz u Amount/Hero/advice.
+- Zašto: App ima EN i treba podršku za euro pored dinara, bez konverzije iznosa.
+- Fajlovi: `src/lib/types.ts`, `src/context/AppContext.tsx`, `src/components/Header.tsx`, `Amount.tsx`, `Hero.tsx`, `SavingsAdvice.tsx`, `src/lib/advice.ts`, `src/lib/i18n/*`
+
+### 2026-08-02 — Mesečni snapshot istorija
+
+- Šta: Ručno/poluautomatsko čuvanje mesečnog snapshot-a (totals) u `localStorage`, lista + overwrite istog meseca, max 24.
+- Zašto: Kontinuirana upotreba zahteva uvid u ranije mesece, bez naloga/servera.
+- Fajlovi: `src/lib/history.ts`, `src/lib/types.ts`, `src/context/AppContext.tsx`, `src/components/MonthHistory.tsx`, `HomePage.tsx`, `Amount.tsx`, `src/lib/i18n/*`, `plan.md`
+
+### 2026-08-02 — Pre-deploy smoke
+
+- Šta: Mobile smoke (390×844), čist lint/build, `main` padding zbog sticky saldo bara; commit pre deploy-a.
+- Zašto: Potvrda da unos, valuta, istorija i persistencija rade na uskom ekranu.
+- Fajlovi: `src/components/HomePage.tsx`, `src/components/Footer.tsx`, `plan.md`
+
 ### Buduće korekcije
 
 > Dodaj novi unos ispod za svaku sesiju izmene.
@@ -62,11 +95,11 @@ Stack: Next.js (App Router) · TypeScript · Tailwind · lokalni React state · 
 
 #### Backlog (ideje, ne obavezno)
 
-- [ ] Persistencija budžeta u `localStorage`
-- [ ] Prava mesečna istorija (više meseci)
+- [x] Persistencija budžeta u `localStorage`
+- [x] Prava mesečna istorija (više meseci)
 - [ ] Jača advice pravila / pragovi po domaćinstvu
 - [ ] Deploy na Vercel + custom domen
-- [ ] Favicon / OG meta za deljenje
+- [x] Favicon / OG meta za deljenje
 - [ ] Jednostavni smoke testovi za `getSavingsAdvice` i totals
 
 ---
